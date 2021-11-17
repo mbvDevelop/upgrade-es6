@@ -1,35 +1,35 @@
-// Iteracion 6
+// Iteracion 7
  
-// 6.1 Dado el siguiente array, usa .find() para econtrar el número 100.
-const numbers = [32, 21, 63, 95, 100, 67, 43];
+//  7.1 Dado el siguiente array, haz una suma de todos las notas de los examenes de 
+// los alumnos usando la función .reduce().
  
-const hundred = numbers.find(number => number == 100)
-console.log(hundred)
+const exams = [
+    {name: 'Yuyu Cabeza Crack', score: 5}, 
+    {name: 'Maria Aranda Jimenez', score: 1}, 
+    {name: 'Cristóbal Martínez Lorenzo', score: 6}, 
+    {name: 'Mercedez Regrera Brito', score: 7},
+    {name: 'Pamela Anderson', score: 3},
+    {name: 'Enrique Perez Lijó', score: 6},
+    {name: 'Pedro Benitez Pacheco', score: 8},
+    {name: 'Ayumi Hamasaki', score: 4},
+    {name: 'Robert Kiyosaki', score: 2},
+    {name: 'Keanu Reeves', score: 10}
+]
+const examTotal = exams.reduce((accumulator,  exam) => accumulator + exam.score,  0)
+console.log(examTotal)
  
-// 6.2 Dado el siguiente array, usa .find() para econtrar la pelicula del año 2010.
-const movies = [
-    {title: 'Madagascar', stars: 4.5, date: 2015},
-    {title: 'Origen', stars: 5, date: 2010},
-    {title: 'Your Name', stars: 5, date: 2016}
-];
-const film2010 = movies.find(movie  => movie.date == 2010)
-console.log(film2010)
-// 6.3 Dado el siguiente javascript, usa .find() para econtrar el alien de nombre 
-// 'Cucushumushu' y la mutación 'Porompompero'. Una vez que los encuentres, usa 
-// spread operator para fusionarlos teniendo en cuenta que el objeto de la mutación 
-// lo queremos meter en la propiedad .mutation del objeto fusionado.
-const aliens = [
-    {name: 'Zalamero', planet: 'Eden', age: 4029},
-    {name: 'Paktu', planet: 'Andromeda', age: 32},
-    {name: 'Cucushumushu', planet: 'Marte', age: 503021}
-];
-const mutations = [
-    {name: 'Porompompero', description: 'Hace que el alien pueda adquirir la habilidad de tocar el tambor'},
-    {name: 'Fly me to the moon', description: 'Permite volar, solo y exclusivamente a la luna'},
-    {name: 'Andando que es gerundio', description: 'Invoca a un señor mayor como Personal Trainer'}
-];
- const alien = aliens.find(alien => alien.name == "Cucushumushu")
- const mutation = mutations.find(mutation => mutation.name == "Porompompero")
+// 7.2 Dado el mismo array, haz una suma de todos las notas de los examenes de los 
+// alumnos que esten aprobados usando la función .reduce().
+const examApproved = exams
+.filter(exam => exam.score > 4)
+.reduce((accumulator, exam) => {
+  return accumulator + exam.score
+},  0)
+console.log(examApproved)
  
- const mutatedAlien = {...alien, mutation: mutation}
- console.log(mutatedAlien)
+// 7.3 Dado el mismo array, haz la media de las notas de todos los examenes .reduce().
+const  examsAvg =  exams.reduce((acc, exam) => {
+  return acc  + exam.score / exams.length
+}, 0) 
+ 
+console.log(examsAvg)
